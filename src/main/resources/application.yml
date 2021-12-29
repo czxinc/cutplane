@@ -1,0 +1,11 @@
+#端口号
+server:
+  port: 81
+spring:
+  application:
+    name: springboot-test-exam1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password:

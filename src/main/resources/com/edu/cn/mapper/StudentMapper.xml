@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.cn.mapper.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.edu.cn.beans.Student">
+        <id column="studentID" jdbcType="VARCHAR" property="studentID"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+    </resultMap>
+
+
+    <insert id="insertStudent" parameterType="com.edu.cn.beans.Student">
+        insert into student (studentID, name, age)
+        values (#{studentID,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})
+    </insert>
+
+    <delete id="deleteStudent" parameterType="java.lang.String">
+        delete
+        from student
+        where studentID = #{studentID,jdbcType=VARCHAR}
+    </delete>
+
+    <update id="updateStudent" parameterType="com.edu.cn.beans.Student">
+        update student
+        set name = #{name,jdbcType=VARCHAR},
+            age  = #{age,jdbcType=INTEGER}
+        where studentID = #{studentID,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectStudent" resultMap="BaseResultMap">
+        select * from student
+    </select>
+
+</mapper>

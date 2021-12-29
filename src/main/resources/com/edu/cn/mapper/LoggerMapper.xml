@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.cn.mapper.LoggerMapper">
+    <resultMap id="BaseResultMap" type="com.edu.cn.beans.Logger">
+        <id column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="operator" jdbcType="VARCHAR" property="operator"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="role" jdbcType="VARCHAR" property="role"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+    </resultMap>
+
+    <insert id="saveLogger" parameterType="com.edu.cn.beans.Logger">
+        insert into logger (ip, operator, remark, role, createTime, description)
+        values (#{ip,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>
